@@ -1,8 +1,8 @@
 
 var  http = require('http'),
-     loc = process.argv.slice(2).join('  '),
+     loc = process.argv.slice(2).join(' '),
      formatLoc = function  (place) {
-       if (! place ) { 
+       if ( ! place ) { 
           console.log('Where?');
           process.exit(); 
        }
@@ -17,7 +17,7 @@ var  http = require('http'),
 
 
 var req = http.get(options, function(res) {
-    var geocode, geocodeData = '';
+    var geocodeData = '';
 
     //console.log('STATUS: ' + res.statusCode);
     //console.log('HEADERS: ' + JSON.stringify(res.headers));
@@ -29,9 +29,9 @@ var req = http.get(options, function(res) {
     });
 
     res.on('end', function () {
-        var dataString = JSON.parse( geocodeData );
-        console.log(dataString.results[0].formatted_address);
-        console.log(dataString.results[0].geometry.location);
+        var data = JSON.parse( geocodeData );
+        console.log (data.results[0].formatted_address );
+        console.log( data.results[0].geometry.location );
     });
 
 });
