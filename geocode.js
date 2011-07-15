@@ -1,3 +1,4 @@
+#!/Users/`whoami`/local/bin/node
 
 var  http = require('http'),
      loc = process.argv.slice(2).join(' '),
@@ -30,6 +31,11 @@ var req = http.get(options, function(res) {
 
     res.on('end', function () {
         var data = JSON.parse( geocodeData );
+
+        if (! data.results.length ) {
+          console.log("No results for " + loc + ".")
+          return;
+        }
         console.log (data.results[0].formatted_address );
         console.log( data.results[0].geometry.location );
     });
