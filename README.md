@@ -14,3 +14,5 @@ A CLI to fetch lat/lng pairs from Google APIs
 
 
 This is a proof of concept, easy to break.
+
+Update: This code has been absorbed into [Geocoder npm module](https://github.com/wyattdanger/geocoder)
